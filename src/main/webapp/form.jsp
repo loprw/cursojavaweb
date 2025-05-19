@@ -12,25 +12,25 @@
 			<input type="number" name="numero1" placeholder="Escribe un nÃºmero" autofocus>
 			<input type="number" name="numero2" placeholder="Escribe un nÃºmero">
 			<select name="opcion">
-				<option value="suma">Sumar</option>
-				<option value="resta">Restar</option>
-				<option value="multiplicacion">Multiplicar</option>
-				<option value="division">Dividir</option>
+				<option value="sum">Sumar</option>
+				<option value="subtract">Restar</option>
+				<option value="multiply">Multiplicar</option>
+				<option value="divide">Dividir</option>
 			</select>
 			<br><br>
-			<%
+<%-- 			<% --%>
 	
-	if (request.getParameter("resultado") != null && request.getParameter("op") != null) {
-		String operation = request.getParameter("op");
-		String result = request.getParameter("resultado");
+// 	if (request.getParameter("resultado") != null && request.getParameter("op") != null) {
+// 		String operation = request.getParameter("op");
+// 		String result = request.getParameter("resultado");
 		
-			%>
+<%-- 			%> --%>
 	
-			<h3>El resultado de la <%= operation %> es <%= result %>.</h3>	
+<%-- 			<h3>El resultado de la <%= operation %> es <%= result %>.</h3>	 --%>
 		
-	<%
-	}
-	%>
+<%-- 	<% --%>
+// 	}
+<%-- 	%> --%>
 			<button type="submit">Calcular</button>
 			<br><br>
 			<!-- <input type="number" name="resultado" readonly> -->

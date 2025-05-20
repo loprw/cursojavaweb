@@ -1,5 +1,6 @@
 package dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -14,7 +15,7 @@ public class CalculadoraDTO {
 	private double num2;
 	private double result;
 	private OperationsEnum operation;
-	private Date date;
+	private String date;
 	
 	private static final Logger logger = LoggerFactory.getLogger(CalculadoraDTO.class);
 	
@@ -24,14 +25,14 @@ public class CalculadoraDTO {
 		this.num2 = num2;
 		this.result = result;
 		this.operation = operation;
-		this.date = date;
+		this.date = convertDateToString(date);
 	}
 	public CalculadoraDTO(double num1, double num2, double result, OperationsEnum operation, Date date) {
 		this.num1 = num1;
 		this.num2 = num2;
 		this.result = result;
 		this.operation = operation;
-		this.date = date;
+		this.date = convertDateToString(date);
 	}
 	public Long getId() {
 		return id;
@@ -73,11 +74,19 @@ public class CalculadoraDTO {
 		this.operation = operation;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = convertDateToString(date);
+	}
+	
+	private String convertDateToString(Date date) {
+		
+		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		String dateStr = df.format(date);
+		
+		return dateStr;
 	}
 }

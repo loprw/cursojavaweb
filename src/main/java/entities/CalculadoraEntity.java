@@ -3,19 +3,30 @@ package entities;
 import java.util.Date;
 
 import enums.OperationsEnum;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "TB_CALCULADORA")
 public class CalculadoraEntity {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(nullable = false)
 	private double number1;
+	@Column(nullable = false)
 	private double number2;
+	@Column(nullable = false)
 	private double result;
-	private OperationsEnum operation;
-	private Date date;
+	@Column(name = "operator")
+	private OperationsEnum operator;
+	@Column(name = "op_date")
+	private Date dateOper;
 	
 	public CalculadoraEntity() {
 		
@@ -25,8 +36,8 @@ public class CalculadoraEntity {
 		this.number1 = number1;
 		this.number2 = number2;
 		this.result = result;
-		this.operation = operation;
-		this.date = date;
+		this.operator = operation;
+		this.dateOper = date;
 	}
 
 
@@ -63,19 +74,19 @@ public class CalculadoraEntity {
 		this.result = result;
 	}
 
-	public OperationsEnum getOperation() {
-		return operation;
+	public OperationsEnum getOperator() {
+		return operator;
 	}
 
-	public void setOperation(OperationsEnum operation) {
-		this.operation = operation;
+	public void setOperator(OperationsEnum operation) {
+		this.operator = operation;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDateOper() {
+		return dateOper;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateOper(Date date) {
+		this.dateOper = date;
 	}
 }
